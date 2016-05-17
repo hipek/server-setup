@@ -24,10 +24,11 @@ class Dependency
   end
 
   def meet(&blk)
-
+    @neet = blk.call
   end
 
   def met?(&blk)
+    @met = blk.call
   end
 
   def dep_meet(context)

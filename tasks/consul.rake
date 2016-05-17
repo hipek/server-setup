@@ -1,4 +1,4 @@
-dep consul: [:wget, :curl, :mc] do
-  meet {  }
-  met? {  }
+dep consul: [:wget, :curl] do
+  # meet { 'apt-get instal mc' }
+  # met? { 'which mc' }
 end
