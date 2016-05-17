@@ -24,7 +24,7 @@ class Dependency
   end
 
   def meet(&blk)
-    @neet = blk.call
+    @meet = blk.call
   end
 
   def met?(&blk)
