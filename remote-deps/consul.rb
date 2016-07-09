@@ -1,0 +1,3 @@
+dep 'consul' do
+
+end
