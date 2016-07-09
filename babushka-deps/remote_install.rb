@@ -11,21 +11,3 @@ dep 'remote_install.babushka', :host do
     }
   end
 end
-
-dep 'remote_install.deps', :host do
-  remote_dir = '/opt/babushka-deps'
-  files = Dir.entries('remote-deps/').reject { |name| %w'. ..'.include?(name) }
-
-  ssh(host) do |remote|
-    met? {
-      files.all? { |file|
-        remote.shell "ls #{remote_dir}/#{file}"
-      }
-    }
-
-    meet {
-      remote.shell "mkdir -p #{remote_dir}"
-      `scp remote-deps/* #{host}:#{remote_dir}/`
-    }
-  end
-end

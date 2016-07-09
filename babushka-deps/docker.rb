@@ -1,3 +1,2 @@
-dep 'docker' do
-
+dep 'docker', :host do
 end
