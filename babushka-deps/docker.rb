@@ -14,3 +14,5 @@ dep 'docker', :host do
     end
   }
 end
+
+# lsb_release -da # debian/ubuntu version
