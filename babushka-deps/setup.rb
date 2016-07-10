@@ -1,9 +1,9 @@
 dep 'setup', :host do
   requires 'tools'.with(host),
-    'nginx.remote_bin'.with(host),
-    'nginx.service'.with(host),
+    'nginx'.with(host),
     'consul'.with(host),
-    'nomad'.with(host)
+    'nomad'.with(host),
+    'docker'.with(host)
 end
 
 dep 'setup.home' do
