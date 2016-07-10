@@ -2,6 +2,8 @@ require_relative '../../lib/file_sha1'
 
 meta :init do
   accepts_value_for :name
+  accepts_value_for :run_as
+  accepts_value_for :params
 
   def init_path
     '/etc/init.d'
@@ -17,6 +19,10 @@ meta :init do
 
   def read_sha1
     FileSha1.read temp_path
+  end
+
+  def script
+    "/usr/local/bin/#{name} #{params}"
   end
 
   template {
