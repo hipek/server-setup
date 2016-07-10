@@ -1,7 +1,13 @@
 dep 'tools', :host do
-  ssh(host) do |r|
-    met? { r.shell 'which unzip' }
+  requires 'lsb_release.remote_bin'.with(host),
+    'unzip.remote_bin'.with(host)
+end
 
-    meet { r.shell 'apt-get update && apt-get install unzip -yy' }
-  end
+dep 'lsb_release.remote_bin', :host do
+  name 'lsb-release'
+  exe 'lsb_release'
+end
+
+dep 'unzip.remote_bin', :host do
+  name 'unzip'
 end

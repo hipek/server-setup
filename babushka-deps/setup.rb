@@ -1,6 +1,5 @@
 dep 'setup', :host do
-  requires 'remote_install.babushka'.with(host),
-    'tools'.with(host),
+  requires 'tools'.with(host),
     'consul'.with(host),
     'nomad'.with(host),
     'docker'.with(host)

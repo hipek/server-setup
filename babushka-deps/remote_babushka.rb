@@ -1,13 +1,18 @@
-dep 'remote_install.babushka', :host do
+dep 'remote_babushka', :host do
+  requires 'ruby.remote_bin'.with(host)
+
   ssh(host) do |remote|
     met? {
       remote.shell 'which babushka'
     }
 
     meet {
-      remote.shell 'apt-get update && apt-get install ruby lsb-release -yy'
       `scp vendor/cache/babushka-*.gem #{host}:/tmp/`
       remote.shell 'cd /tmp && gem install babushka-*.gem'
     }
   end
+end
+
+dep 'ruby.remote_bin', :host do
+  name 'ruby'
 end
