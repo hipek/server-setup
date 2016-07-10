@@ -8,6 +8,6 @@ meta :remote_bin do
 
   template {
     met? { ssh(host).shell "which #{exe || name}" }
-    meet { ssh(host).shell "#{install_cmd} #{name} -yy" }
+    meet { ssh(host).shell "#{install_cmd} #{name} -yy > /dev/null" }
   }
 end

@@ -15,9 +15,9 @@ meta :hashicorp do
 
     meet {
       ssh(host)
-        .shell "cd /tmp && wget #{source}/#{name}/"\
+        .shell "cd /tmp && wget --no-check-certificate #{source}/#{name}/"\
                 "#{version}/#{name}_#{version}_linux_amd64.zip && "\
-                "cd /tmp && unzip #{name}*.zip && cp #{name} #{dest_path}"
+                "cd /tmp && unzip #{name}*.zip && cp #{name} #{dest_path} > /dev/null"
     }
   }
 end

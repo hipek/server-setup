@@ -15,16 +15,7 @@ dep 'consul-template.hashicorp', :host do
 end
 
 dep 'consul.init', :host do
-  ssh(host) do |r|
-    met? {
-      r.shell "ls /etc/init/consul.conf"
-    }
-
-    meet {
-      r.shell 'mkdir -p /var/lib/consul'
-      `scp babushka-deps/consul/consul.conf #{host}:/etc/init/consul.conf`
-    }
-  end
+  name 'consul'
 end
 
 dep 'consul-template.init', :host do
