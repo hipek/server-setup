@@ -3,7 +3,7 @@ upstream consul-service {
 }
 
 server {
-  listen 80 default_server;
+  listen 80;
 
   charset utf-8;
 
