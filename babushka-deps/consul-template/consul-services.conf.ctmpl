@@ -4,7 +4,7 @@ upstream consul-service {
 
 server {
   listen 80;
-
+  server_name consul.service.consul;
   charset utf-8;
 
   location / {

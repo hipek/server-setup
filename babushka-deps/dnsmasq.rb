@@ -1,5 +1,7 @@
 dep 'dnsmasq', :host do
   requires 'dnsmasq.remote_bin'.with(host),
+    'dnsmasq.conf'.with(host),
+    'dnsmasq.load_conf.d'.with(host),
     'dnsutils.remote_bin'.with(host)
 end
 
@@ -10,4 +12,21 @@ end
 dep 'dnsutils.remote_bin', :host do
   name 'dnsutils'
   exe 'dig'
+end
+
+dep 'dnsmasq.conf', :host do
+  dir '/etc/dnsmasq.d'
+  files 'dnsmasq/10-consul'
+end
+
+dep 'dnsmasq.load_conf.d', :host do
+  ssh(host) do |r|
+    met? {
+      r.shell 'cat /etc/dnsmasq.conf | grep "^conf-dir=/etc/dnsmasq.d"'
+    }
+
+    meet {
+      r.shell "echo '\nconf-dir=/etc/dnsmasq.d' >> /etc/dnsmasq.conf"
+    }
+  end
 end
