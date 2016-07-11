@@ -4,7 +4,8 @@ dep 'consul', :host do
     'consul.init'.with(host),
     'consul-template.init'.with(host),
     'consul-template.conf'.with(host),
-    'consul-templates.conf'.with(host)
+    'consul-templates.conf'.with(host),
+    'dnsmasq'.with(host)
 end
 
 dep 'consul.hashicorp', :host do

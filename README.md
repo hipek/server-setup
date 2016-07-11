@@ -1,5 +1,9 @@
 # Usage
 
+Install gems:
+
   bundle install
-  bundle exec cap home install
-  bundle exec babushka [dep]
+
+Run setup to install all services:
+
+  bundle exec babushka setup
