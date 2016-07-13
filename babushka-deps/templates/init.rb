@@ -34,7 +34,7 @@ meta :init do
 
     meet {
       `scp #{temp_path} #{host}:#{init_path}`
-      ssh(host).shell "chmod 755 #{init_path}/#{name}"
+      ssh(host).shell "chmod 755 #{init_path}/#{name} && update-rc.d #{name} defaults"
       log "New file #{init_path}/#{name} uploaded"
     }
   }
