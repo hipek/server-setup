@@ -1,5 +1,5 @@
 meta :service do
-  accepts_value_for :name
+  accepts_value_for :name, :basename
 
   template {
     met? { ssh(host).shell "ls" }

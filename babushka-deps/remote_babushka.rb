@@ -13,6 +13,4 @@ dep 'remote_babushka', :host do
   end
 end
 
-dep 'ruby.remote_bin', :host do
-  name 'ruby'
-end
+dep 'ruby.remote_bin', :host

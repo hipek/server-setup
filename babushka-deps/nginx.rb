@@ -8,6 +8,6 @@ dep 'nginx.remote_bin', :host do
   exe 'nginx'
 end
 
-dep 'nginx.service', :host do
+dep 'nginx.restart', :host do
   name 'nginx'
 end

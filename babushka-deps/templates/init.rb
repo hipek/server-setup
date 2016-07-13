@@ -1,7 +1,7 @@
 require_relative '../../lib/file_sha1'
 
 meta :init do
-  accepts_value_for :name
+  accepts_value_for :name, :basename
   accepts_value_for :run_as
   accepts_value_for :params
 

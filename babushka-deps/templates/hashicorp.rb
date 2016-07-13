@@ -1,5 +1,5 @@
 meta :hashicorp do
-  accepts_value_for :name
+  accepts_value_for :name, :basename
   accepts_value_for :version
 
   def dest_path

@@ -5,12 +5,9 @@ dep 'dnsmasq', :host do
     'dnsutils.remote_bin'.with(host)
 end
 
-dep 'dnsmasq.remote_bin', :host do
-  name 'dnsmasq'
-end
+dep 'dnsmasq.remote_bin', :host
 
 dep 'dnsutils.remote_bin', :host do
-  name 'dnsutils'
   exe 'dig'
 end
 

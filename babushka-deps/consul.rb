@@ -10,22 +10,18 @@ end
 
 dep 'consul.hashicorp', :host do
   version '0.6.4'
-  name 'consul'
 end
 
 dep 'consul-template.hashicorp', :host do
   version '0.15.0'
-  name 'consul-template'
 end
 
 dep 'consul.init', :host do
   ip = host.to_s.split('@').last
-  name 'consul'
   params "agent -server -data-dir /tmp/consul -bootstrap -ui -bind #{ip} -advertise=#{ip}"
 end
 
 dep 'consul-template.init', :host do
-  name 'consul-template'
   params '-config /etc/consul-template'
 end
 
