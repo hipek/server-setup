@@ -24,8 +24,7 @@ dep 'dnsmasq.load_conf.d', :host do
 
     meet {
       r.shell "echo '\nconf-dir=/etc/dnsmasq.d' >> /etc/dnsmasq.conf"
+      r.shell "/etc/init.d/dnsmasq restart"
     }
   end
 end
-
-dep 'dnsmasq.restart', :host
