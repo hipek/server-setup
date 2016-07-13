@@ -3,7 +3,8 @@ dep 'setup', :host do
     'nginx'.with(host),
     'consul'.with(host),
     'nomad'.with(host),
-    'docker'.with(host)
+    'docker'.with(host),
+    'jenkins'.with(host)
 end
 
 dep 'setup.home' do
