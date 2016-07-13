@@ -5,7 +5,9 @@ dep 'consul', :host do
     'consul-template.init'.with(host),
     'consul-template.conf'.with(host),
     'consul-templates.conf'.with(host),
-    'dnsmasq'.with(host)
+    'dnsmasq'.with(host),
+    'consul.start'.with(host),
+    'consul-template.start'.with(host)
 end
 
 dep 'consul.hashicorp', :host do
@@ -17,8 +19,13 @@ dep 'consul-template.hashicorp', :host do
 end
 
 dep 'consul.init', :host do
+  requires 'consul.remote_dir'.with(host)
   ip = host.to_s.split('@').last
-  params "agent -server -data-dir /tmp/consul -bootstrap -ui -bind #{ip} -advertise=#{ip}"
+  params "agent -server -data-dir /var/lib/consul -bootstrap -ui -bind #{ip} -advertise=#{ip}"
+end
+
+dep 'consul.remote_dir', :host do
+  name '/var/lib/consul'
 end
 
 dep 'consul-template.init', :host do
@@ -35,3 +42,6 @@ dep 'consul-templates.conf', :host do
   dir '/etc/consul-templates'
   files 'consul-template/consul-services.conf.ctmpl'
 end
+
+dep 'consul.start', :host
+dep 'consul-template.start', :host

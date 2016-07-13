@@ -27,3 +27,5 @@ dep 'dnsmasq.load_conf.d', :host do
     }
   end
 end
+
+dep 'dnsmasq.restart', :host

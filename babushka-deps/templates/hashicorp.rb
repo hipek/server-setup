@@ -10,14 +10,18 @@ meta :hashicorp do
     'https://releases.hashicorp.com'
   end
 
+  def full_name
+    "#{name}_#{version}"
+  end
+
   template {
     met? { ssh(host).shell "which #{name}" }
 
     meet {
       ssh(host)
         .shell "cd /tmp && wget --no-check-certificate #{source}/#{name}/"\
-                "#{version}/#{name}_#{version}_linux_amd64.zip && "\
-                "cd /tmp && unzip #{name}*.zip && cp #{name} #{dest_path} > /dev/null"
+                "#{version}/#{full_name}_linux_amd64.zip && "\
+                "cd /tmp && unzip -o #{full_name}_*.zip && cp #{name} #{dest_path} > /dev/null"
     }
   }
 end
