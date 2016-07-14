@@ -1,8 +1,7 @@
 dep 'setup', :host do
   requires 'tools'.with(host),
-  'consul'.with(host),
-    'nginx'.with(host),
-    'docker'.with(host)
+    'consul'.with(host),
+    'nginx'.with(host)
 end
 
 dep 'setup.home' do
