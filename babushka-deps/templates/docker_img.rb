@@ -8,7 +8,7 @@ meta :docker_img do
 
     meet {
       log "Installing docker image #{name}..."
-      ssh(host).shell "docker pull #{name} > /dev/null"
+      ssh(host).shell "docker pull #{name}"
     }
   }
 end
