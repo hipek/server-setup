@@ -18,10 +18,9 @@ meta :hashicorp do
     met? { ssh(host).shell "which #{name}" }
 
     meet {
+      `scp  babushka-deps/zips/#{full_name}_*.zip #{host}:/tmp/`
       ssh(host)
-        .shell "cd /tmp && wget --no-check-certificate #{source}/#{name}/"\
-                "#{version}/#{full_name}_linux_amd64.zip && "\
-                "cd /tmp && unzip -o #{full_name}_*.zip && cp #{name} #{dest_path} > /dev/null"
+        .shell "cd /tmp && unzip -o #{full_name}_*.zip && cp #{name} #{dest_path} > /dev/null"
     }
   }
 end
