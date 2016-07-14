@@ -9,7 +9,7 @@ meta :remote_dir do
 
     meet {
       ssh(host).shell "mkdir -p #{name}"
-      ssh(host).shell "chmod #{chmod}" if chmod
+      ssh(host).shell "chmod #{chmod} #{name}" if chmod
     }
   }
 end
