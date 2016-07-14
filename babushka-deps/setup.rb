@@ -1,9 +1,6 @@
 dep 'setup', :host do
   requires 'tools'.with(host),
+    'nginx'.with(host),
     'consul'.with(host),
-    'nginx'.with(host)
-end
-
-dep 'setup.home' do
-  requires 'setup'.with 'root@192.168.56.101'
+    'nginx.register'.with(host)
 end

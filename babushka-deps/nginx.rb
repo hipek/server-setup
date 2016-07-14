@@ -1,6 +1,5 @@
 dep 'nginx', :host do
-  requires 'nginx.remote_bin'.with(host),
-    'nginx.register'.with(host)
+  requires 'nginx.remote_bin'.with(host)
 end
 
 dep 'nginx.remote_bin', :host
