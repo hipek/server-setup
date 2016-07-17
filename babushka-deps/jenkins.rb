@@ -2,7 +2,8 @@ dep 'jenkins', :host do
   requires 'java'.with(host),
     'jenkins.source'.with(host),
     'jenkins.remote_bin'.with(host),
-    'jenkins.port'.with(host)
+    'jenkins.port'.with(host),
+    'jenkins.register'.with(host)
 end
 
 dep 'jenkins.source', :host do
