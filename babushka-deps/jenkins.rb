@@ -3,7 +3,9 @@ dep 'jenkins', :host do
     'jenkins.source'.with(host),
     'jenkins.remote_bin'.with(host),
     'jenkins.port'.with(host),
-    'jenkins.register'.with(host)
+    'jenkins.register'.with(host),
+    'jenkins.meteor'.with(host),
+    'jenkins.ssh_key'.with(host)
 end
 
 dep 'jenkins.source', :host do
