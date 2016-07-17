@@ -1,4 +1,4 @@
-dep 'jenkins', :host do
+dep 'docker.jenkins', :host do
   requires 'tools'.with(host),
     'jenkins.docker_img'.with(host),
     'jenkins.remote_dir'.with(host),
