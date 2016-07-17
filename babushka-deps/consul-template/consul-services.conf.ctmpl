@@ -4,7 +4,7 @@ upstream consul-service {
 
 server {
   listen 80;
-  server_name consul.service.consul;
+  server_name consul.service.consul consul.example.com;
   charset utf-8;
 
   location / {
@@ -27,6 +27,21 @@ upstream {{.Name}} {
 server {
   listen 80;
   server_name {{.Name}}.service.consul;
+
+  charset utf-8;
+
+  location / {
+    proxy_pass http://{{.Name}};
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+  }
+}
+{{ end }}
+{{ if .Tags | contains "http-public" }}
+server {
+  listen 80;
+  server_name {{.Name}}.example.com;
 
   charset utf-8;
 

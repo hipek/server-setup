@@ -24,5 +24,5 @@ end
 dep 'jenkins.register', :host do
   requires_when_unmet 'consul'.with(host)
   port '8090'
-  tags 'http-service'
+  tags 'http-service', 'http-public'
 end
