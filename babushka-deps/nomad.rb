@@ -7,4 +7,7 @@ dep 'nomad.hashicorp', :host do
   version '0.4.0'
 end
 
-dep 'nomad.init', :host
+dep 'nomad.init', :host do
+  ip = '127.0.0.1'
+  params "agent -dev -bind=#{ip} -network-interface=eth0"
+end
