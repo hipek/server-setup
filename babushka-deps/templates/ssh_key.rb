@@ -12,7 +12,7 @@ meta :ssh_key do
 
     meet {
       ssh(host).shell "su - #{username} -c 'mkdir ~/.ssh'"
-      ssh(host).shell "su - #{username} -c 'ssh-keygen -q -t rsa -f #{ssh_path}/id_rsa -N'"
+      ssh(host).shell "su - #{username} -c 'ssh-keygen -q -t rsa -f #{ssh_path}/id_rsa -N \"\"'"
     }
   }
 end
