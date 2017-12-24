@@ -1,0 +1,18 @@
+server {
+  listen *:80;
+  server_name www.auto-check24.pl;
+  return 301 $scheme://auto-check24.pl$request_uri;
+}
+
+server {
+  listen *:80;
+  server_name auto-check24.pl peter.ischedule.ga;
+
+  # Turn on Passenger
+  passenger_enabled on;
+  rails_env production;
+  passenger_ruby /home/deploy/.rvm/bin/ruby-rvm-env;
+
+  # Tell Nginx and Passenger where your app's 'public' directory is
+  root /home/deploy/ruby/peter_page/current/public;
+}

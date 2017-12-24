@@ -7,9 +7,16 @@ dep 'ischedule' do
            'deploy.ssh_key'.with(host),
            'deploy.sudoer'.with(host),
            'rvm.remote_bin'.with(host, 'deploy'),
-           'ruby242.rvm'.with(host)
+           'ruby242.rvm'.with(host),
+           'screen.remote_bin'.with(host),
+           'rtorrent.remote_bin'.with(host),
+           'nodejs.remote_bin'.with(host),
+           'peter.nginx_site'.with(host)
 end
 
+dep 'nodejs.remote_bin', :host
+dep 'screen.remote_bin', :host
+dep 'rtorrent.remote_bin', :host
 dep 'deploy.useradd', :host
 dep 'deploy.ssh_key', :host
 dep 'deploy.sudoer', :host
@@ -18,3 +25,5 @@ dep 'ruby242.rvm', :host do
   name 'ruby'
   version '2.4.2'
 end
+
+dep 'peter.nginx_site', :host
