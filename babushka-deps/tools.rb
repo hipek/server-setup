@@ -12,3 +12,4 @@ end
 dep 'unzip.remote_bin', :host
 dep 'curl.remote_bin', :host
 dep 'htop.remote_bin', :host
+dep 'git.remote_bin', :host

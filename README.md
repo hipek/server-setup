@@ -6,4 +6,4 @@ Install gems:
 
 Run setup to install all services:
 
-  bundle exec babushka setup
+  bundle exec babushka [name-server]
